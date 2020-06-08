@@ -43,6 +43,10 @@ type Adapter struct {
 	engine         *xorm.Engine
 }
 
+func (a *Adapter) GetEngine() *xorm.Engine {
+	return a.engine
+}
+
 // finalizer is the destructor for Adapter.
 func finalizer(a *Adapter) {
 	err := a.engine.Close()
